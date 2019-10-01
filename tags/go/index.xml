@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>go on Programming Diary</title>
+    <link>/tags/go/</link>
+    <description>Recent content in go on Programming Diary</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 01 Oct 2019 05:07:30 +0530</lastBuildDate>
+    
+	<atom:link href="/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>BST in GO</title>
+      <link>/posts/bst-in-go/</link>
+      <pubDate>Tue, 01 Oct 2019 05:07:30 +0530</pubDate>
+      
+      <guid>/posts/bst-in-go/</guid>
+      <description>Generic Binary Search Tree in GO In this blog post, I am going to show how we can create a generic BST data structure in golang.
+Before going forward take a look at this.
+So what is a binary search tree? Binary Search Tree is a node-based binary tree data structure which has the following properties:  The left subtree of a node contains only nodes with keys lesser than the node’s key.</description>
+    </item>
+    
+  </channel>
+</rss>

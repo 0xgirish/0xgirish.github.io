@@ -3,7 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/tags/bst/</loc>
+    <lastmod>2019-10-01T05:07:30+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>/posts/bst-in-go/</loc>
+    <lastmod>2019-10-01T05:07:30+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/go/</loc>
+    <lastmod>2019-10-01T05:07:30+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/interface/</loc>
     <lastmod>2019-10-01T05:07:30+05:30</lastmod>
   </url>
   
@@ -18,11 +33,12 @@
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>/tags/</loc>
+    <lastmod>2019-10-01T05:07:30+05:30</lastmod>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>/categories/</loc>
   </url>
   
 </urlset>
