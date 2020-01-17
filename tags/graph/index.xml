@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Programming Diary</title>
-    <link>/posts/</link>
-    <description>Recent content in Posts on Programming Diary</description>
+    <title>graph on Programming Diary</title>
+    <link>/tags/graph/</link>
+    <description>Recent content in graph on Programming Diary</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 17 Jan 2020 05:23:57 +0530</lastBuildDate>
     
-	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/graph/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       <guid>/posts/graph-in-go/</guid>
       <description>A graph is a way to represent relationship between objects. For example we can represent friends in a class using a graph, we say that two students are connected if they are friends. We can represent every student in the class with a node and the friendship can be represented by drawing an edge between two nodes or students if they are friends.
 From above example you can quickly realise different types of relations can easily be represented using graphs and thus graphs are the most important data-structures.</description>
-    </item>
-    
-    <item>
-      <title>BST in GO</title>
-      <link>/posts/bst-in-go/</link>
-      <pubDate>Sun, 10 Feb 2019 05:07:30 +0530</pubDate>
-      
-      <guid>/posts/bst-in-go/</guid>
-      <description>Note: This blog post was written by a newbie in golang as well as blogging. You may not like the quality of the post, but I am keeping it here anyway, because it is my first ever post.</description>
     </item>
     
   </channel>
