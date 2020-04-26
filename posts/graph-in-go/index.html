@@ -3,7 +3,7 @@
   <head>
     <title>Graph in go // Programming Diary</title>
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.69.2" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Girish Kumar" />
     <meta name="description" content="" />
@@ -81,26 +81,15 @@ From above example you can quickly realise different types of relations can easi
           <a class="tag" href="/tags/graph/">graph</a><a class="tag" href="/tags/set/">set</a><a class="tag" href="/tags/go/">go</a></div></div>
     </header>
     <div class="post-content">
-      
-
-<p>A graph is a way to represent relationship between objects. For example we can represent friends in a class using a graph, we say that two students are connected if they are friends. We can represent every student in the class with a node and the friendship can be represented by drawing an edge between two nodes or students if they are friends.</p>
-
+      <p>A graph is a way to represent relationship between objects. For example we can represent friends in a class using a graph, we say that two students are connected if they are friends. We can represent every student in the class with a node and the friendship can be represented by drawing an edge between two nodes or students if they are friends.</p>
 <p>From above example you can quickly realise different types of relations can easily be represented using graphs and thus graphs are the most important data-structures.</p>
-
 <h3 id="defination">Defination</h3>
-
 <p>A graph is simply a way of encoding pairwise relationships among set of objects. It consists of a collection \( V \) of nodes and a collection \( E \) of edges. An edge is represented using a two-element subset of \( V: e = \{u, v\}\), the edge \( e \) represent a relation from \( u \) to \( v \).</p>
-
 <h3 id="graph-representation">Graph representation</h3>
-
 <p>On of the simplest way to represent graph programmatically is using a matrix. In matrix representation a graph with \( n \) nodes is represented using a \( n \times n\) matrix where a \([i, j]\) entry in the matrix is \(1\) if there is an edge from \(i^{th}\) node to \(j^{th}\) node.</p>
-
 <p>Because a matrix takes \(O(n^2)\) space we usually don&rsquo;t use matrix method for graphs.</p>
-
 <h4 id="set-representation-of-graph">Set representation of graph</h4>
-
 <p>In a set representation of a graph we have a set for every node in \(V\). For a node \(u\) we add the node \(v\) in the set if there is an edge from \(u\) to \(v\). The space complexity for this method is \(O(V + E)\).</p>
-
 <p>Now we are going to implement set representation of a graph in golang. But first we need to implement set in go.
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">set</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">int</span>]<span style="color:#66d9ef">bool</span>
 
@@ -111,9 +100,7 @@ From above example you can quickly realise different types of relations can easi
 <span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#a6e22e">set</span>) <span style="color:#a6e22e">Remove</span>(<span style="color:#a6e22e">u</span> <span style="color:#66d9ef">int</span>) {
     delete(<span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">u</span>)
 }</code></pre></div></p>
-
 <p>Now we are ready to create graph using sets.</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">graph</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">int</span>]<span style="color:#a6e22e">set</span>
 
 <span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">g</span> <span style="color:#a6e22e">graph</span>) <span style="color:#a6e22e">AddEdge</span>(<span style="color:#a6e22e">u</span>, <span style="color:#a6e22e">v</span> <span style="color:#66d9ef">int</span>) {
@@ -127,7 +114,6 @@ From above example you can quickly realise different types of relations can easi
 <span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">g</span> <span style="color:#a6e22e">graph</span>) <span style="color:#a6e22e">EdgeExist</span>(<span style="color:#a6e22e">u</span>, <span style="color:#a6e22e">v</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
     <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">g</span>[<span style="color:#a6e22e">u</span>][<span style="color:#a6e22e">v</span>]
 }</code></pre></div>
-
 <p>Now lets say we want to get all the nodes which are connected to a node \(u\) then we can simply range over the set of node \(u\).
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">for</span> <span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">g</span>[<span style="color:#a6e22e">u</span>] {
     <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%d --&gt; %d&#34;</span>, <span style="color:#a6e22e">u</span>, <span style="color:#a6e22e">v</span>)
@@ -140,11 +126,5 @@ From above example you can quickly realise different types of relations can easi
   </article>
 
     </main>
-    
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-
-    
   </body>
 </html>
