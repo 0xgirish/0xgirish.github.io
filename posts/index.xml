@@ -1,33 +1,165 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on Programming Diary</title>
-    <link>/posts/</link>
-    <description>Recent content in Posts on Programming Diary</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 17 Jan 2020 05:23:57 +0530</lastBuildDate>
-    
-	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Graph in go</title>
-      <link>/posts/graph-in-go/</link>
-      <pubDate>Fri, 17 Jan 2020 05:23:57 +0530</pubDate>
-      
-      <guid>/posts/graph-in-go/</guid>
-      <description>A graph is a way to represent relationship between objects. For example we can represent friends in a class using a graph, we say that two students are connected if they are friends. We can represent every student in the class with a node and the friendship can be represented by drawing an edge between two nodes or students if they are friends.
+    <channel>
+        <title>Posts on Girish Kumar</title>
+        <link>/posts/</link>
+        <description>Recent content in Posts on Girish Kumar</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <lastBuildDate>Fri, 17 Jan 2020 05:23:57 +0530</lastBuildDate>
+        <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Graph in go</title>
+            <link>/posts/graph-in-go/</link>
+            <pubDate>Fri, 17 Jan 2020 05:23:57 +0530</pubDate>
+            
+            <guid>/posts/graph-in-go/</guid>
+            <description>A graph is a way to represent relationship between objects. For example we can represent friends in a class using a graph, we say that two students are connected if they are friends. We can represent every student in the class with a node and the friendship can be represented by drawing an edge between two nodes or students if they are friends.
 From above example you can quickly realise different types of relations can easily be represented using graphs and thus graphs are the most important data-structures.</description>
-    </item>
-    
-    <item>
-      <title>BST in GO</title>
-      <link>/posts/bst-in-go/</link>
-      <pubDate>Sun, 10 Feb 2019 05:07:30 +0530</pubDate>
-      
-      <guid>/posts/bst-in-go/</guid>
-      <description>Note: This blog post was written by a newbie in golang as well as blogging. You may not like the quality of the post, but I am keeping it here anyway, because it is my first ever post.</description>
-    </item>
-    
-  </channel>
+            <content type="html"><![CDATA[<p>A graph is a way to represent relationship between objects. For example we can represent friends in a class using a graph, we say that two students are connected if they are friends. We can represent every student in the class with a node and the friendship can be represented by drawing an edge between two nodes or students if they are friends.</p>
+<p>From above example you can quickly realise different types of relations can easily be represented using graphs and thus graphs are the most important data-structures.</p>
+<h3 id="defination">Defination</h3>
+<p>A graph is simply a way of encoding pairwise relationships among set of objects. It consists of a collection \( V \) of nodes and a collection \( E \) of edges. An edge is represented using a two-element subset of \( V: e = \{u, v\}\), the edge \( e \) represent a relation from \( u \) to \( v \).</p>
+<h3 id="graph-representation">Graph representation</h3>
+<p>On of the simplest way to represent graph programmatically is using a matrix. In matrix representation a graph with \( n \) nodes is represented using a \( n \times n\) matrix where a \([i, j]\) entry in the matrix is \(1\) if there is an edge from \(i^{th}\) node to \(j^{th}\) node.</p>
+<p>Because a matrix takes \(O(n^2)\) space we usually don&rsquo;t use matrix method for graphs.</p>
+<h4 id="set-representation-of-graph">Set representation of graph</h4>
+<p>In a set representation of a graph we have a set for every node in \(V\). For a node \(u\) we add the node \(v\) in the set if there is an edge from \(u\) to \(v\). The space complexity for this method is \(O(V + E)\).</p>
+<p>Now we are going to implement set representation of a graph in golang. But first we need to implement set in go.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">set</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">int</span>]<span style="color:#66d9ef">bool</span>
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#a6e22e">set</span>) <span style="color:#a6e22e">Add</span>(<span style="color:#a6e22e">u</span> <span style="color:#66d9ef">int</span>) {
+    <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">u</span>] = <span style="color:#66d9ef">true</span>
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#a6e22e">set</span>) <span style="color:#a6e22e">Remove</span>(<span style="color:#a6e22e">u</span> <span style="color:#66d9ef">int</span>) {
+    delete(<span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">u</span>)
+}</code></pre></div></p>
+<p>Now we are ready to create graph using sets.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">graph</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">int</span>]<span style="color:#a6e22e">set</span>
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">g</span> <span style="color:#a6e22e">graph</span>) <span style="color:#a6e22e">AddEdge</span>(<span style="color:#a6e22e">u</span>, <span style="color:#a6e22e">v</span> <span style="color:#66d9ef">int</span>) {
+    <span style="color:#a6e22e">g</span>[<span style="color:#a6e22e">u</span>].<span style="color:#a6e22e">Add</span>(<span style="color:#a6e22e">v</span>)
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">g</span> <span style="color:#a6e22e">graph</span>) <span style="color:#a6e22e">RemoveEdge</span>(<span style="color:#a6e22e">u</span>, <span style="color:#a6e22e">v</span> <span style="color:#66d9ef">int</span>) {
+    <span style="color:#a6e22e">g</span>[<span style="color:#a6e22e">u</span>].<span style="color:#a6e22e">Remove</span>(<span style="color:#a6e22e">v</span>)
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">g</span> <span style="color:#a6e22e">graph</span>) <span style="color:#a6e22e">EdgeExist</span>(<span style="color:#a6e22e">u</span>, <span style="color:#a6e22e">v</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">g</span>[<span style="color:#a6e22e">u</span>][<span style="color:#a6e22e">v</span>]
+}</code></pre></div>
+<p>Now lets say we want to get all the nodes which are connected to a node \(u\) then we can simply range over the set of node \(u\).
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">for</span> <span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">g</span>[<span style="color:#a6e22e">u</span>] {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%d --&gt; %d&#34;</span>, <span style="color:#a6e22e">u</span>, <span style="color:#a6e22e">v</span>)
+}</code></pre></div></p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>BST in GO</title>
+            <link>/posts/bst-in-go/</link>
+            <pubDate>Sun, 10 Feb 2019 05:07:30 +0530</pubDate>
+            
+            <guid>/posts/bst-in-go/</guid>
+            <description>Note: This blog post was written by a newbie in golang as well as blogging. You may not like the quality of the post, but I am keeping it here anyway, because it is my first ever post.</description>
+            <content type="html"><![CDATA[<p><strong>Note: This blog post was written by a newbie in golang as well as blogging. You may not like the quality of the post, but I am keeping it here anyway, because it is my first ever post.</strong></p>
+<h2 id="generic-binary-search-tree-in-go">Generic Binary Search Tree in GO</h2>
+<p>In this blog post, I am going to show how we can create a generic BST data structure in golang.<!-- raw HTML omitted -->
+Before going forward take a look at <a href="https://tour.golang.org/methods/9">this</a>.</p>
+<p><strong>So what is a binary search tree?</strong> <!-- raw HTML omitted -->
+Binary Search Tree is a node-based binary tree data structure which has the following properties: <!-- raw HTML omitted --></p>
+<ul>
+<li>The left subtree of a node contains only nodes with keys lesser than the node’s key.</li>
+<li>The right subtree of a node contains only nodes with keys greater than the node’s key.</li>
+<li>The left and right subtree each must also be a binary search tree. <!-- raw HTML omitted -->
+There must be no duplicate nodes</li>
+</ul>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// TreeType is an interface for BST data structure
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">TreeType</span> <span style="color:#66d9ef">interface</span> {
+	<span style="color:#a6e22e">Less</span>(<span style="color:#66d9ef">interface</span>{}) <span style="color:#66d9ef">bool</span>
+}</code></pre></div>
+<p>In above code, TreeType is an interface with method Less(). This means any data type which implements the function Less() will be able to use BST. Now take a look at the important part of the code.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// BST data structure
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">BST</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">data</span>  <span style="color:#a6e22e">TreeType</span>
+	<span style="color:#a6e22e">left</span>  <span style="color:#f92672">*</span><span style="color:#a6e22e">BST</span>
+	<span style="color:#a6e22e">right</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">BST</span>
+}
+
+<span style="color:#75715e">// insert inserts the data into the tree
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">bst</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">BST</span>) <span style="color:#a6e22e">insert</span>(<span style="color:#a6e22e">t</span> <span style="color:#a6e22e">TreeType</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">BST</span> {
+  <span style="color:#75715e">// if bst is NULL then create node
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">bst</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">BST</span>{<span style="color:#a6e22e">data</span>: <span style="color:#a6e22e">t</span>, <span style="color:#a6e22e">left</span>: <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">right</span>: <span style="color:#66d9ef">nil</span>}
+	}
+
+ <span style="color:#75715e">//  if bst.data &lt; t 
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">bst</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">Less</span>(<span style="color:#a6e22e">t</span>) {
+		<span style="color:#a6e22e">bst</span>.<span style="color:#a6e22e">left</span> = <span style="color:#a6e22e">bst</span>.<span style="color:#a6e22e">left</span>.<span style="color:#a6e22e">insert</span>(<span style="color:#a6e22e">t</span>)
+	} <span style="color:#66d9ef">else</span> {
+		<span style="color:#a6e22e">bst</span>.<span style="color:#a6e22e">right</span> = <span style="color:#a6e22e">bst</span>.<span style="color:#a6e22e">right</span>.<span style="color:#a6e22e">insert</span>(<span style="color:#a6e22e">t</span>)
+	}
+
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">bst</span>
+}</code></pre></div>
+<p>Now you can see how the insert method works. The method insert will accept any data type which implements TreeType interface. All the elements will be added according to the method Less provided by the programmer.<!-- raw HTML omitted -->
+Let&rsquo;s create another method find on BST which returns depth of the node else -1 the node is not in the tree.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// find returns the deapth of the node with data == t else -1
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">bst</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">BST</span>) <span style="color:#a6e22e">find</span>(<span style="color:#a6e22e">t</span> <span style="color:#a6e22e">TreeType</span>) <span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">bst</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#75715e">// t does not exist
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+	}
+
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">bst</span>.<span style="color:#a6e22e">data</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">t</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+	}
+
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">depth</span> <span style="color:#66d9ef">int</span>
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">bst</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">Less</span>(<span style="color:#a6e22e">t</span>) {
+		<span style="color:#a6e22e">depth</span> = <span style="color:#a6e22e">bst</span>.<span style="color:#a6e22e">left</span>.<span style="color:#a6e22e">find</span>(<span style="color:#a6e22e">t</span>)
+	} <span style="color:#66d9ef">else</span> {
+		<span style="color:#a6e22e">depth</span> = <span style="color:#a6e22e">bst</span>.<span style="color:#a6e22e">right</span>.<span style="color:#a6e22e">find</span>(<span style="color:#a6e22e">t</span>)
+	}
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">depth</span> <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">depth</span>
+	}
+
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">depth</span>
+
+}</code></pre></div>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">String</span> <span style="color:#66d9ef">string</span>
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#a6e22e">String</span>) <span style="color:#a6e22e">Less</span>(<span style="color:#a6e22e">r</span> <span style="color:#66d9ef">interface</span>{}) <span style="color:#66d9ef">bool</span> {
+	<span style="color:#75715e">//  type assertions
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">return</span> len(<span style="color:#a6e22e">s</span>) &lt; len(<span style="color:#a6e22e">r</span>.(<span style="color:#a6e22e">String</span>))
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+
+	<span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> []<span style="color:#a6e22e">String</span>{<span style="color:#e6db74">&#34;working&#34;</span>, <span style="color:#e6db74">&#34;with&#34;</span>, <span style="color:#e6db74">&#34;golang&#34;</span>, <span style="color:#e6db74">&#34;is&#34;</span>, <span style="color:#e6db74">&#34;fun&#34;</span>}
+
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">strBST</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">BST</span>
+
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">s</span> {
+		<span style="color:#a6e22e">strBST</span> = <span style="color:#a6e22e">strBST</span>.<span style="color:#a6e22e">insert</span>(<span style="color:#a6e22e">j</span>)
+	}
+
+	<span style="color:#a6e22e">depth</span> = <span style="color:#a6e22e">strBST</span>.<span style="color:#a6e22e">find</span>(<span style="color:#a6e22e">String</span>(<span style="color:#e6db74">&#34;fun&#34;</span>))   <span style="color:#75715e">// root has depth 0
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;depth of fun: %d\n&#34;</span>, <span style="color:#a6e22e">depth</span>) <span style="color:#75715e">// output: depth of fun: 3
+</span><span style="color:#75715e"></span>
+	<span style="color:#a6e22e">depth</span> = <span style="color:#a6e22e">strBST</span>.<span style="color:#a6e22e">find</span>(<span style="color:#a6e22e">String</span>(<span style="color:#e6db74">&#34;gopher&#34;</span>))
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;depth of gopher: %d\n&#34;</span>, <span style="color:#a6e22e">depth</span>) <span style="color:#75715e">// output: depth of gopher: -1
+</span><span style="color:#75715e"></span>
+}</code></pre></div>
+]]></content>
+        </item>
+        
+    </channel>
 </rss>
