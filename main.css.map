@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "main.css",
-	"sourceRoot": "/home/zkmrgirish/usr/dev/blog",
+	"sourceRoot": "/Users/zomato/self/blog",
 	"sources": [
 		"themes/hfg/assets/scss/main.scss",
 		"themes/hfg/assets/scss/_normalize.scss",
