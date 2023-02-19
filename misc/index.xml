@@ -15,7 +15,7 @@
       <guid>https://girishkumar.dev/about-me/</guid>
       <description>~$ whoami Girish Kumar Feel free to contact me at 0xgirish@gmail.com
 Checkout my resume I am a Site Reliability Engineer, and currently building softwares to improve scalability and reliability of Zomato infrastructure. I like to keep things simple and a big fan of terminal based text editors :). In free time I watch anime or build things.
-Currently, I am building and maintaining platform to solve canary for Zomato&amp;rsquo;s async workload, I also maintain sms service and phone-verification service.</description>
+Currently, I am building and maintaining platform to solve canary for Zomato&amp;rsquo;s async workload, I also maintain couple of business logic services, sms service and phone-verification service.</description>
     </item>
     
   </channel>
