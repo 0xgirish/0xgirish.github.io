@@ -1,59 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
-    <loc>/</loc>
-    <lastmod>2020-01-17T05:23:57+05:30</lastmod>
+    <loc>https://girishkumar.dev/blog/</loc>
+    <lastmod>2023-02-19T22:38:30+05:30</lastmod>
+  </url><url>
+    <loc>https://girishkumar.dev/blog/building-async-processing-platform-part-1/</loc>
+    <lastmod>2023-02-19T22:38:30+05:30</lastmod>
+  </url><url>
+    <loc>https://girishkumar.dev/</loc>
+    <lastmod>2023-02-19T22:38:30+05:30</lastmod>
+  </url><url>
+    <loc>https://girishkumar.dev/about-me/</loc>
+    <lastmod>2023-02-19T20:17:12+05:30</lastmod>
+  </url><url>
+    <loc>https://girishkumar.dev/misc/</loc>
+    <lastmod>2023-02-19T20:17:12+05:30</lastmod>
+  </url><url>
+    <loc>https://girishkumar.dev/categories/</loc>
+  </url><url>
+    <loc>https://girishkumar.dev/tags/</loc>
   </url>
-  
-  <url>
-    <loc>/tags/go/</loc>
-    <lastmod>2020-01-17T05:23:57+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/graph/</loc>
-    <lastmod>2020-01-17T05:23:57+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/graph-in-go/</loc>
-    <lastmod>2020-01-17T05:23:57+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/</loc>
-    <lastmod>2020-01-17T05:23:57+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/set/</loc>
-    <lastmod>2020-01-17T05:23:57+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-01-17T05:23:57+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/bst/</loc>
-    <lastmod>2019-02-10T05:07:30+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/bst-in-go/</loc>
-    <lastmod>2019-02-10T05:07:30+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/interface/</loc>
-    <lastmod>2019-02-10T05:07:30+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
-  </url>  
-  
 </urlset>

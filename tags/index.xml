@@ -2,58 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Girish Kumar</title>
-    <link>/tags/</link>
+    <link>https://girishkumar.dev/tags/</link>
     <description>Recent content in Tags on Girish Kumar</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 17 Jan 2020 05:23:57 +0530</lastBuildDate>
-    
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>go</title>
-      <link>/tags/go/</link>
-      <pubDate>Fri, 17 Jan 2020 05:23:57 +0530</pubDate>
-      
-      <guid>/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>graph</title>
-      <link>/tags/graph/</link>
-      <pubDate>Fri, 17 Jan 2020 05:23:57 +0530</pubDate>
-      
-      <guid>/tags/graph/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>set</title>
-      <link>/tags/set/</link>
-      <pubDate>Fri, 17 Jan 2020 05:23:57 +0530</pubDate>
-      
-      <guid>/tags/set/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bst</title>
-      <link>/tags/bst/</link>
-      <pubDate>Sun, 10 Feb 2019 05:07:30 +0530</pubDate>
-      
-      <guid>/tags/bst/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>interface</title>
-      <link>/tags/interface/</link>
-      <pubDate>Sun, 10 Feb 2019 05:07:30 +0530</pubDate>
-      
-      <guid>/tags/interface/</guid>
-      <description></description>
-    </item>
-    
+    <language>en-us</language><atom:link href="https://girishkumar.dev/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
